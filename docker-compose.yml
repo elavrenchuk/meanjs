@@ -1,0 +1,27 @@
+version: '3'
+services:
+  mean:
+    image: meanjs/mean
+    ports:
+     - "3000:3000"
+     - "5858:5858"
+     - "8080:8080"
+     - "35729:35729"
+    environment:
+     - NODE_ENV=development
+     - DB_1_PORT_27017_TCP_ADDR=192.168.1.9
+    depends_on:
+     - primary
+    deploy:
+      mode: replicated
+      replicas: 1
+      restart_policy:
+        condition: on-failure
+      placement:
+        constraints: [node.hostname == server2]
+    networks:
+     - frontend
+
+networks:
+  frontend:
+    driver: overlay
