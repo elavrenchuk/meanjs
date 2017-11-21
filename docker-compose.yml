@@ -9,12 +9,11 @@ services:
      - "35729:35729"
     environment:
      - NODE_ENV=development
-     - DB_1_PORT_27017_TCP_ADDR=192.168.1.9
+     - DB_1_PORT_27017_TCP_ADDR=52.59.226.106
     depends_on:
      - primary
     deploy:
-      mode: replicated
-      replicas: 1
+      mode: global
       restart_policy:
         condition: on-failure
       placement:
