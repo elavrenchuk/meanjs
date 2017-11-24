@@ -10,14 +10,10 @@ services:
     environment:
      - NODE_ENV=development
      - DB_1_PORT_27017_TCP_ADDR=52.59.226.106
-    depends_on:
-     - primary
     deploy:
       mode: global
       restart_policy:
         condition: on-failure
-      placement:
-        constraints: [node.hostname == server2]
     networks:
      - frontend
 
