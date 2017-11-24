@@ -9,7 +9,7 @@ services:
      - "35729:35729"
     environment:
      - NODE_ENV=development
-     - DB_1_PORT_27017_TCP_ADDR=52.59.226.106
+     - DB_1_PORT_27017_TCP_ADDR=172.31.23.95
     deploy:
       mode: global
       restart_policy:
